@@ -1,0 +1,24 @@
+[package]
+name = "antec-flux-pro-daemon"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.100"
+description = "Configurable Linux temperature daemon for the Antec Flux Pro case display"
+license = "MIT"
+repository = "https://github.com/delfianto/antec-flux-pro-daemon"
+
+[[bin]]
+name = "fluxprod"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6.9", features = ["derive"] }
+ctrlc = { version = "3.5.3", features = ["termination"] }
+nusb = "0.2.9"
+nvml-wrapper = "0.13.0"
+serde = { version = "1.0.229", features = ["derive"] }
+thiserror = "2.0.21"
+toml = "1.2.2"
+
+[dev-dependencies]
+tempfile = "3.27.0"

@@ -1,0 +1,41 @@
+# Maintainer: delfianto
+# Use build.sh to stage and checksum the source archive from this checkout.
+pkgname=antec-flux-pro-daemon
+pkgver=0.1.0
+pkgrel=2
+pkgdesc='Configurable temperature daemon for the Antec Flux Pro case display'
+arch=('x86_64')
+url='https://github.com/delfianto/antec-flux-pro-daemon'
+license=('MIT')
+depends=('glibc' 'libgcc' 'systemd')
+makedepends=('cargo')
+optdepends=('nvidia-utils: NVIDIA GPU temperature monitoring through NVML')
+backup=('etc/fluxprod.toml')
+install=antec-flux-pro-daemon.install
+options=('!debug')
+source=("$pkgname-source.tar.gz")
+sha256sums=('SKIP')
+
+prepare() {
+    cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
+}
+
+build() {
+    export CARGO_TARGET_DIR="$srcdir/target"
+    cargo build --frozen --release --target "$CARCH-unknown-linux-gnu"
+}
+
+check() {
+    export CARGO_TARGET_DIR="$srcdir/target"
+    cargo test --frozen --release --all-targets --target "$CARCH-unknown-linux-gnu"
+}
+
+package() {
+    install -Dm755 "$srcdir/target/$CARCH-unknown-linux-gnu/release/fluxprod" "$pkgdir/usr/bin/fluxprod"
+    install -Dm644 "$srcdir/packaging/fluxprod.toml" "$pkgdir/etc/fluxprod.toml"
+    install -Dm644 "$srcdir/packaging/$pkgname.service" "$pkgdir/usr/lib/systemd/system/$pkgname.service"
+    install -Dm644 "$srcdir/packaging/$pkgname.sysusers" "$pkgdir/usr/lib/sysusers.d/$pkgname.conf"
+    install -Dm644 "$srcdir/packaging/70-$pkgname.rules" "$pkgdir/usr/lib/udev/rules.d/70-$pkgname.rules"
+    install -Dm644 "$srcdir/packaging/90-$pkgname-restart.hook" "$pkgdir/usr/share/libalpm/hooks/90-$pkgname-restart.hook"
+    install -Dm644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

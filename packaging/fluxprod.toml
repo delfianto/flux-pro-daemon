@@ -1,0 +1,8 @@
+# The hardware supports two fields with fixed CPU and GPU labels.
+update_interval_ms = 1000
+
+[cpu]
+source = "auto"
+
+[gpu]
+source = "auto"

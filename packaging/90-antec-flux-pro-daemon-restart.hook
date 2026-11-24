@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = antec-flux-pro-daemon
+
+[Action]
+Description = Restarting the Antec Flux Pro display service if running...
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/systemd-hook restart antec-flux-pro-daemon.service
