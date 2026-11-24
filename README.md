@@ -1,4 +1,4 @@
-# Antec Flux Pro Daemon
+# Flux Pro Daemon
 
 A Linux service for the Antec Flux Pro's USB temperature display (`2022:0522`). The case has two numeric fields labeled CPU and GPU. Each can use a different temperature sensor.
 
