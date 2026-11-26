@@ -8,7 +8,7 @@ use std::{
 use serde::{Deserialize, Deserializer, de};
 use thiserror::Error;
 
-pub const DEFAULT_PATH: &str = "/etc/fluxprod.toml";
+pub const DEFAULT_PATH: &str = "/etc/fluxpro.toml";
 pub const CONFIG_EXIT_CODE: u8 = 78;
 const DEFAULT_INTERVAL_MS: u64 = 1_000;
 const INTERVAL_RANGE: std::ops::RangeInclusive<u64> = 250..=60_000;

@@ -1,1 +1,0 @@
-SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="2022", ATTR{idProduct}=="0522", MODE="0660", GROUP="antec-flux-pro", TAG+="uaccess"

@@ -1,0 +1,5 @@
+pre_remove() {
+    if [[ -d /run/systemd/system ]]; then
+        systemctl disable --now fluxpro.service
+    fi
+}

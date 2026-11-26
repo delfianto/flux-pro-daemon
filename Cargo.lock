@@ -53,20 +53,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "antec-flux-pro-daemon"
-version = "0.1.0"
-dependencies = [
- "clap",
- "ctrlc",
- "nusb",
- "nvml-wrapper",
- "serde",
- "tempfile",
- "thiserror 2.0.21",
- "toml",
-]
-
-[[package]]
 name = "bitflags"
 version = "2.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -240,6 +226,20 @@ name = "fastrand"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "da7c62ceae207dd37ea5b845da6a0696c799f85e97da1ab5b7910be3c1c80223"
+
+[[package]]
+name = "fluxpro"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "ctrlc",
+ "nusb",
+ "nvml-wrapper",
+ "serde",
+ "tempfile",
+ "thiserror 2.0.21",
+ "toml",
+]
 
 [[package]]
 name = "fnv"

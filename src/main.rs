@@ -11,7 +11,7 @@ mod sensors;
 mod usb;
 
 #[derive(Parser)]
-#[command(name = "fluxprod", version, about)]
+#[command(version, about)]
 struct Args {
     /// Use a TOML configuration file at this path.
     #[arg(short, long, value_name = "PATH", default_value = DEFAULT_PATH)]

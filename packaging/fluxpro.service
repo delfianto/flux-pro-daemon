@@ -4,14 +4,14 @@ After=systemd-udevd.service
 
 [Service]
 Type=exec
-ExecStart=/usr/bin/fluxprod
+ExecStart=/usr/bin/fluxpro
 Restart=on-failure
 RestartSec=3s
 RestartPreventExitStatus=78
 TimeoutStopSec=5s
 
 DynamicUser=yes
-SupplementaryGroups=antec-flux-pro
+SupplementaryGroups=fluxpro-usb
 NoNewPrivileges=yes
 CapabilityBoundingSet=
 PrivateTmp=yes

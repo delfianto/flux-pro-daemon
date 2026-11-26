@@ -5,7 +5,7 @@ use std::{
 };
 
 fn command() -> Command {
-    Command::new(env!("CARGO_BIN_EXE_fluxprod"))
+    Command::new(env!("CARGO_BIN_EXE_fluxpro"))
 }
 
 fn with_config(text: &str, mode: &str) -> Output {
@@ -21,7 +21,7 @@ fn with_config(text: &str, mode: &str) -> Output {
 
 #[test]
 fn checks_packaged_config_without_hardware() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("packaging/fluxprod.toml");
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("packaging/fluxpro.toml");
     let output = command()
         .args(["--check-config", "--config"])
         .arg(path)
@@ -40,8 +40,8 @@ fn help_shows_the_binary_and_default_config_path() {
     let output = command().arg("--help").output().unwrap();
     assert!(output.status.success());
     let help = String::from_utf8_lossy(&output.stdout);
-    assert!(help.contains("Usage: fluxprod"), "{help}");
-    assert!(help.contains("[default: /etc/fluxprod.toml]"), "{help}");
+    assert!(help.contains("Usage: fluxpro"), "{help}");
+    assert!(help.contains("[default: /etc/fluxpro.toml]"), "{help}");
 }
 
 #[test]

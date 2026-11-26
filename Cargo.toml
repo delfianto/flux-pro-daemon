@@ -1,15 +1,11 @@
 [package]
-name = "antec-flux-pro-daemon"
+name = "fluxpro"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.100"
 description = "Configurable Linux temperature daemon for the Antec Flux Pro case display"
 license = "MIT"
 repository = "https://github.com/delfianto/flux-pro-daemon"
-
-[[bin]]
-name = "fluxprod"
-path = "src/main.rs"
 
 [dependencies]
 clap = { version = "4.6.9", features = ["derive"] }
